@@ -14,11 +14,13 @@
             <div class="view mt-3 mb-5">
                 <div class="container">
                     <div class="card">
-                        <div class="card-header">
-                            <h3 class="text-center text-danger">اعدادات الاشعارات</h3>
+                        <div class="card-header bg-warning">
+                            <h3 class="text-center text-danger" style="font-weight: bold">اعدادات الاشعارات</h3>
                         </div><!-- card-header -->
                         <div class="card-body">
                             <p>
+                                {{ $settings->notification_settings_id }}
+                                {{ $settings->notification_settings_id }}
                                 {{ $settings->notification_settings_id }}
                             </p>
                         </div> <!-- card-body -->
