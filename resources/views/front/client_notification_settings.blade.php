@@ -1,5 +1,9 @@
 @extends('front.master')
-
+    <style>
+        input{
+            accent-color: red;
+        }
+    </style>
 @section('content')
     <div class="favourites">
         <div class="container">
@@ -59,11 +63,14 @@
                                             @foreach ($governorates as $governorate)
                                                 <div class="col-sm-3">
                                                     <label class="text-danger">
-                                                        <input type="checkbox" value={{ $governorate->id }} name="governorates[]" @if ($governorate->has_any)
-                                                        checked
-                                                    @endif>
+                                                        <input type="checkbox" value={{ $governorate->id }} name="governorates[]"
+                                                        @if ($governorate == $client_governorate)
+                                                            checked disabled
+                                                        @elseif ($governorate->has_any)
+                                                            cheked
+                                                        @endif>
                                                         {{ $governorate->name }}
-                                                    </label>
+                                                        </label>
                                                 </div>
                                             @endforeach
                                         </div>

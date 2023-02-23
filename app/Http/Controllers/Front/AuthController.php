@@ -96,8 +96,10 @@ class AuthController extends Controller
         $bloodTypes = BloodType::all();
         $governorates = Governorate::all();
         $client_blood_type = auth('client')->user()->bloodType;
-        $client_governorates = auth('client')->user()->governorates;
-        return view('front.client_notification_settings',compact('bloodTypes','governorates','client_blood_type','client_governorates'));
+        $client_id = auth('client')->user();
+        $city = $client_id->city;
+        $client_governorate = $city->governorate;
+        return view('front.client_notification_settings',compact('bloodTypes','governorates','client_blood_type','client_governorate'));
     }
 
     public function saveNotificationSettings(Request $request){
