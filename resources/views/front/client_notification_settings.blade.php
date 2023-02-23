@@ -37,9 +37,10 @@
                                                 <div class="col-sm-3">
                                                     <label class="text-danger">
                                                         <input type="checkbox" value={{ $bloodType->id }} name="blood_types[]"
-                                                        @if ($bloodType->has_any || $bloodType == $client_blood_type){
+                                                        @if ($bloodType == $client_blood_type)
+                                                            checked disabled
+                                                        @elseif ($bloodType->has_any)
                                                             checked
-                                                        }
                                                         @endif>
                                                         {{ $bloodType->name }}
                                                     </label>
