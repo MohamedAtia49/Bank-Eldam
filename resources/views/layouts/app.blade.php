@@ -278,7 +278,7 @@
                         <a href="#" class="nav-link">
                             <i class="fas fa-users"></i>
                             <p>
-                                Users
+                                Admins
                             <i class="right fas fa-angle-left"></i>
                             </p>
                           </a>
@@ -286,13 +286,13 @@
                             <li class="nav-item">
                                 <a href="{{ route('users.index') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Users</p>
+                                    <p>Admins</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('users.create') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Create User</p>
+                                    <p>Create Admin</p>
                                 </a>
                             </li>
                         </ul>

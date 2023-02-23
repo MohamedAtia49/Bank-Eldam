@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page_title')
-    Users
+    Admins
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center">
-                    <h2>Add New User</h2>
+                    <h2>Add New Admin</h2>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -26,13 +26,13 @@
     <div class="card-body text-center">
         <form action="{{ route('users.store') }}" method="post">
             @csrf
-            <label class="text-center">User Name</label>
-            <input type="text" name="name" class="form-control form-control-lg mb-3" placeholder="User Name">
-            <label class="text-center">User Email</label>
-            <input type="text" name="email" class="form-control form-control-lg mb-3" placeholder="User Email">
-            <label class="text-center">User Password</label>
-            <input type="password" name="password" class="form-control form-control-lg mb-3" placeholder="User Password">
-            <label class="text-center">User Roles</label><br>
+            <label class="text-center">Admin Name</label>
+            <input type="text" name="name" class="form-control form-control-lg mb-3" placeholder="Admin Name">
+            <label class="text-center">Admin Email</label>
+            <input type="text" name="email" class="form-control form-control-lg mb-3" placeholder="Admin Email">
+            <label class="text-center">Admin Password</label>
+            <input type="password" name="password" class="form-control form-control-lg mb-3" placeholder="Admin Password">
+            <label class="text-center">Admin Roles</label><br>
             <input id="selectAll" type="checkbox"><label for='selectAll'> Select All </label>
             <div class="row mb-2">
                 @foreach ($records as $record)

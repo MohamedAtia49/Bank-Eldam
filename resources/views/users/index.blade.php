@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page_title')
-    Users
+    Admins
 @endsection
 
 @section('content')
