@@ -150,6 +150,20 @@ class MainController extends Controller
 
         }
 
-    }
+    // $clients = Client::whereHas('governorates',function($query)  use($donation){
+    //     $query->where('governorate_id',$donation->city->governorate_id);
+    // })->whereHas('bloodTypes',function($query) use($donation){
+    //     $query->where('blood_type_id',$donation->blood_type_id);
+    // })->pluck('id')->toArray();
+
+    // $tokens = Token::whereHas('client',function($query) use($donation){
+    //     $query->whereHas('governorates',function($query)  use($donation){
+    //         $query->where('governorate_id',$donation->city->governorate_id);
+    // })->whereHas('bloodTypes',function($query) use($donation){
+    //     $query->where('blood_type_id',$donation->blood_type_id);
+    // });
+    // })->pluck('fcm_token')->whereNotNull('fcm_token')->toArray();
+
+        }
 
 }
