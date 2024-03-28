@@ -36,17 +36,6 @@ class CityController extends Controller
         return redirect()->route('cities.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
 
     public function edit($id)
     {
