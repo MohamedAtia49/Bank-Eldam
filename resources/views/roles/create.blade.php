@@ -40,7 +40,7 @@
                 @endforeach
             </div>
             <button type="submit" class="btn btn-primary btn-outline-warning">Save</button>
-          </form>
+        </form>
     </div> <!-- card-body -->
 </div> <!-- card -->
 </div> <!-- col-md-8 -->

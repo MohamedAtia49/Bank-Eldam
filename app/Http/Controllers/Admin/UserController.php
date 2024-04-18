@@ -14,7 +14,6 @@ class UserController extends Controller
     {
         $records = User::with('roles')->paginate(5);
         return view('users.index',compact('records'));
-
     }
 
 
