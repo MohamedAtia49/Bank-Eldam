@@ -134,21 +134,32 @@ class MainController extends Controller
         if(count($clientsIds)){
             //create notification on DB
             $notification = $donationRequest->notifications()->create([
-                'title' => 'يوجد حالة تبرع قريبة منك',
+                'title' => 'يوجد حالة تبرع قريبة منك يرجى التوجه اليها .',
                 'content' => $donationRequest->bloodType->name .'احتاج الى متبرع فصيلة',
             ]);
 
             //attach clients to this notification
             $notification->clients()->attach($clientsIds);
 
+            //Get the tokens with clients where have notifications
             $tokens = Token::whereIn('client_id', $clientsIds)->where('token','!=',null)->pluck('token')->toArray();
 
-            return responseJson(1, 'Request Sended');
-            // dd($tokens);
+            if (count($tokens)) {
+                $title = $notification->title;
+                $body = $notification->body;
+                $data = [
+                    'donation_request_id' => $donationRequest->id,
+                ];
+                $send =notifyByFirebase($title , $body , $tokens , $data);
+                info("firebase result: " . $send);
+            }
 
-            //get token from FCM (push notification using firebase cloud)
-
+            dd(env('FIREBASE_API_ACCESS_KEY'));
         }
+
+        return responseJson(1, 'Request Sended' ,$donationRequest);
+
+    //get token from FCM (push notification using firebase cloud)
 
     // $clients = Client::whereHas('governorates',function($query)  use($donation){
     //     $query->where('governorate_id',$donation->city->governorate_id);
